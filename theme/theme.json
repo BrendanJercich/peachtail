@@ -6,28 +6,33 @@
 			"palette": [
 				{
 					"slug": "background",
-					"color": "#ffffff",
-					"name": "Background"
+					"color": "#fdf0e7",
+					"name": "Background",
+					"description": "pastel peachy beige"
 				},
 				{
 					"slug": "foreground",
 					"color": "#404040",
-					"name": "Foreground"
+					"name": "Foreground",
+					"description": "dark gray for text"
 				},
 				{
 					"slug": "primary",
-					"color": "#b91c1c",
-					"name": "Primary"
+					"color": "#eadfd6",
+					"name": "Primary",
+					"description":  "darker peachy beige, used for borders/buttons"
 				},
 				{
 					"slug": "secondary",
-					"color": "#15803d",
-					"name": "Secondary"
+					"color": "#fbe7eb",
+					"name": "Secondary",
+					"description": "peachy pink for secondary background"
 				},
 				{
 					"slug": "tertiary",
-					"color": "#0369a1",
-					"name": "Tertiary"
+					"color": "#e9d5e2",
+					"name": "Tertiary",
+					"description": "dark peachy pink for secondary borders"
 				}
 			]
 		},
