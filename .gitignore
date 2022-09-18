@@ -23,4 +23,7 @@ node_modules/
 *.sqlite
 
 # ignore packaged versions
-peachtail.zip 
+peachtail.zip
+
+# ignore IDE
+.nova
