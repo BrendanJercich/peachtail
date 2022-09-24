@@ -12,18 +12,7 @@ if ( ! function_exists( 'pt_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function pt_posted_on() {
-		$time_string = '<time datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time datetime="%1$s">%2$s</time><time datetime="%3$s">%4$s</time>';
-		}
-
-		$time_string = sprintf(
-			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
-		);
+		$time_string = human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ).' '.esc_html( __( 'ago', 'peachtail' ) );
 
 		printf(
 			'<a href="%1$s" rel="bookmark">%2$s</a>',
@@ -69,38 +58,8 @@ if ( ! function_exists( 'pt_entry_meta' ) ) :
 		// Hide author, post date, category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 
-			// Posted by.
-			pt_posted_by();
-
 			// Posted on.
 			pt_posted_on();
-
-			/* translators: used between list items, there is a space after the comma. */
-			$categories_list = get_the_category_list( __( ', ', 'peachtail' ) );
-			if ( $categories_list ) {
-				printf(
-					/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
-					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Posted in', 'peachtail' ),
-					$categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				);
-			}
-
-			/* translators: used between list items, there is a space after the comma. */
-			$tags_list = get_the_tag_list( '', __( ', ', 'peachtail' ) );
-			if ( $tags_list ) {
-				printf(
-					/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
-					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Tags:', 'peachtail' ),
-					$tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				);
-			}
-		}
-
-		// Comment count.
-		if ( ! is_singular() ) {
-			pt_comment_count();
 		}
 
 		// Edit post link.
@@ -130,38 +89,8 @@ if ( ! function_exists( 'pt_entry_footer' ) ) :
 		// Hide author, post date, category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 
-			// Posted by.
-			pt_posted_by();
-
 			// Posted on.
 			pt_posted_on();
-
-			/* translators: used between list items, there is a space after the comma. */
-			$categories_list = get_the_category_list( __( ', ', 'peachtail' ) );
-			if ( $categories_list ) {
-				printf(
-					/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
-					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Posted in', 'peachtail' ),
-					$categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				);
-			}
-
-			/* translators: used between list items, there is a space after the comma. */
-			$tags_list = get_the_tag_list( '', __( ', ', 'peachtail' ) );
-			if ( $tags_list ) {
-				printf(
-					/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
-					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Tags:', 'peachtail' ),
-					$tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				);
-			}
-		}
-
-		// Comment count.
-		if ( ! is_singular() ) {
-			pt_comment_count();
 		}
 
 		// Edit post link.

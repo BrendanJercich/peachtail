@@ -55,14 +55,12 @@
 
 			<p><?php esc_html_e( 'Your search generated no results. Please try a different search.', 'peachtail' ); ?></p>
 			<?php
-			get_search_form();
 
 		else :
 			?>
 
 			<p><?php esc_html_e( 'No content matched your request.', 'peachtail' ); ?></p>
 			<?php
-			get_search_form();
 
 		endif;
 		?>
