@@ -44,5 +44,8 @@
 		"prod": "npm run production",
 		"zip": "node node_scripts/zip.js peachtail",
 		"bundle": "run-s production zip"
+	},
+	"dependencies": {
+		"daisyui": "^2.31.0"
 	}
 }

@@ -21,7 +21,7 @@
  * `postcss.config.js` file for details.
  */
 $(post-title-selector) {
-	@apply mx-auto mb-6 max-w-content text-3xl font-extrabold text-neutral-900;
+	@apply mx-auto mb-6 max-w-content text-3xl font-extrabold;
 }
 
 /**
